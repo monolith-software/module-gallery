@@ -1,0 +1,36 @@
+
+monolith_module.gallery.admin:
+    path: /
+    defaults:
+        _controller: GalleryModuleBundle:AdminGallery:index
+
+monolith_module.gallery.admin_gallery:
+    path: /gallery_{id}/
+    defaults:
+        _controller: GalleryModuleBundle:AdminGallery:gallery
+
+monolith_module.gallery.admin_gallery_edit:
+    path: /gallery_{id}/edit/
+    defaults:
+        _controller: GalleryModuleBundle:AdminGallery:galleryEdit
+
+monolith_module.gallery.admin_album:
+    path: /gallery_{gallery_id}/album_{id}/
+    defaults:
+        _controller: GalleryModuleBundle:AdminGallery:album
+
+monolith_module.gallery.admin_album_edit:
+    path: /gallery_{gallery_id}/album_{id}/edit/
+    defaults:
+        _controller: GalleryModuleBundle:AdminGallery:albumEdit
+
+monolith_module.gallery.admin_photo_make_cover:
+    path: /gallery_{gallery_id}/album_{album_id}/photo_{id}/make_cover/
+    defaults:
+        _controller: GalleryModuleBundle:AdminGallery:photo
+        set_as_cover: true
+
+monolith_module.gallery.admin_photo:
+    path: /gallery_{gallery_id}/album_{album_id}/photo_{id}/
+    defaults:
+        _controller: GalleryModuleBundle:AdminGallery:photo

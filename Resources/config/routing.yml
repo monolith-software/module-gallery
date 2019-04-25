@@ -1,0 +1,12 @@
+
+monolith_module.gallery:
+    path: /
+    defaults:
+        _controller: GalleryModuleBundle:Gallery:index
+
+monolith_module.gallery.album:
+    path: /{id}/
+    defaults:
+        _controller: GalleryModuleBundle:Gallery:album
+    requirements:
+        id: \d+

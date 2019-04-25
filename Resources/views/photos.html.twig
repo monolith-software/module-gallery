@@ -1,0 +1,45 @@
+
+{% set lightbox = felib_use('jquery-colorbox') %}
+
+<style type="text/css" media="screen">
+    .monolith_gallery_image {
+        position: relative;
+        float: left;
+        display: table-cell;
+        vertical-align: middle;
+        margin: 8px;
+        width: 200px;
+        height: 200px;
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+</style>
+
+{% for photo in photos %}
+    <a class="monolith_gallery" href="{{ smart_media(photo.imageId) }}" name="image_{{ photo.id }}" title="{{ photo.description }}">
+        <div class="monolith_gallery_image" id="monolith_gallery_image_{{ photo.id }}">
+            {{ smart_media_img(photo.imageId, '200x200') }}
+        </div>
+    </a>
+{% endfor %}
+
+{% if photos|length == 0 %}
+    В альбоме еще нет фотографий
+{% else %}
+<script>
+    $(document).ready(function(){
+        $('.monolith_gallery').colorbox({
+            rel: 'monolith_gallery',
+            scalePhotos: true,
+            scrolling: true,
+            fadeOut: 100,
+            current: "Фото {current} из {total}",
+            initialWidth: 200,
+            maxHeight: '95%',
+            maxWidth: '95%'
+        });
+    });
+</script>
+{% endif %}
+
+<div style="clear: both;"></div>
