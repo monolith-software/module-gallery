@@ -1,9 +1,6 @@
 {
     "name": "monolith-software/module-gallery",
     "description": "Simple photo gallery with albums support.",
-    "require": {
-        "smart-core/media-bundle": "dev-master"
-    },
     "autoload": {
         "psr-4": {
             "Monolith\\Module\\Gallery\\": ""
